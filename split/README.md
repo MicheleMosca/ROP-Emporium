@@ -11,7 +11,7 @@ We can check if the binary is stripped or not:
 split: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=98755e64e1d0c1bff48fccae1dca9ee9e3c609e2, not stripped
 ```
 
-The binary is now stripped we can see function names.
+The binary is not stripped we can see function names.
 
 Now check which checks are enabled in this binary:
 
