@@ -6,3 +6,4 @@ Personal ROP Emporium Writeups
 - [split](split/README.md)
 - [callme](callme/README.md)
 - [write4](write4/README.md)
+- [badchars](badchars/README.md)
